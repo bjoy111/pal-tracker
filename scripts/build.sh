@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -ex
 
-DISABLE_AUTH=true dotnet test ./test/PalTrackerTests
+DISABLE_AUTH=false dotnet test ./test/PalTrackerTests
 artifacts_path=/tmp/artifacts
 
 build_output="/tmp/build-output"
