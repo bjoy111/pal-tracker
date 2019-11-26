@@ -1,8 +1,8 @@
 ---
 applications:
-- name: pal-tracker
+- name: pal-tracker-production
   path: src/PalTracker/bin/Release/netcoreapp2.2/publish/
   routes:
   - route: pal-tracker-joy-prod.cfapps.io
   env:
-    WELCOME_MESSAGE: Hello from the production environment
+    WELCOME_MESSAGE: Hello from the review environment
