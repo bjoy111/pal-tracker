@@ -6,7 +6,7 @@ namespace PalTracker
 {
     public class InMemoryTimeEntryRepository : ITimeEntryRepository
     {
-        private readonly IDictionary<int, TimeEntry> timeEntries = new Dictionary<int, TimeEntry>();
+        private readonly IDictionary<long, TimeEntry> timeEntries = new Dictionary<long, TimeEntry>();
 
         public TimeEntry Create(TimeEntry timeEntry)
         {
@@ -16,12 +16,12 @@ namespace PalTracker
             return timeEntry;
         }
 
-        public TimeEntry Find(int itemNumber)
+        public TimeEntry Find(long itemNumber)
         {
             return timeEntries[itemNumber];
         }
 
-        public bool Contains(int itemNumber)
+        public bool Contains(long itemNumber)
         {
             return  timeEntries.ContainsKey(itemNumber);
         }
@@ -31,14 +31,14 @@ namespace PalTracker
             return timeEntries.Values.ToList();
         }
 
-        public TimeEntry Update(int itemNumber, TimeEntry timeEntry)
+        public TimeEntry Update(long itemNumber, TimeEntry timeEntry)
         {
             timeEntry.Id = itemNumber;
             timeEntries[itemNumber] = timeEntry;
             return  timeEntries[itemNumber];
         }
 
-        public void Delete(int id)
+        public void Delete(long id)
         {
             timeEntries.Remove(id);
         }

@@ -25,7 +25,7 @@ namespace PalTracker
         }
 
         [HttpGet("{id}", Name = "GetTimeEntry")]
-        public IActionResult Read(int id)
+        public IActionResult Read(long id)
         {
             return _repository.Contains(id) ? (IActionResult) Ok(_repository.Find(id)) : NotFound();
         }
@@ -37,14 +37,14 @@ namespace PalTracker
         }
         
         [HttpPut("{id}")]
-        public IActionResult Update(int id, [FromBody] TimeEntry timeEntry)
+        public IActionResult Update(long id, [FromBody] TimeEntry timeEntry)
         {
             //return _repository.Update(id, timeEntry) ? (IActionResult) Ok(_repository.Contains(id)) : NotFound();
             return _repository.Contains(id) ? (IActionResult) Ok(_repository.Update(id, timeEntry)) : NotFound();
         }
 
         [HttpDelete("{id}")]
-        public IActionResult Delete(int id)
+        public IActionResult Delete(long id)
         {
             //return _repository.Contains(id) ? (IActionResult) Ok(_repository.Delete(id)) : NotFound();
 
